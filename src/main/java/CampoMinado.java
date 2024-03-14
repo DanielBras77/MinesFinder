@@ -151,11 +151,14 @@ public class CampoMinado {
         for (var i = Math.max(0, x - 1); i < Math.min(nrLinhas, x + 2); ++i) {
             for (var j = Math.max(0, y - 1); j < Math.min(nrColunas, y + 2); ++j)
             {
-                int numMinasVizinhas = contarMinasVizinhas(i,j);
-                estado[x][y] = numMinasVizinhas;
+                if (estado[i][j] >= TAPADO) { // Verificar se a quadricula ainda não foi revelada
 
-                if (numMinasVizinhas == 0) {
-                    revelarQuadriculasVizinhas(i,j);
+                    int numMinasVizinhas = contarMinasVizinhas(i, j);
+                    estado[i][j] = numMinasVizinhas;
+
+                    if (numMinasVizinhas == 0) {
+                        revelarQuadriculasVizinhas(i, j);
+                    }
                 }
 
             }
