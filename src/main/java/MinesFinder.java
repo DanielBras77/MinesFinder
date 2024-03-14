@@ -70,16 +70,19 @@ public class MinesFinder extends JFrame {
     private void recordesFacilActualizado(TabelaRecordes recordes) {
         lblNomeFacil.setText(recordes.getNome());
         lblTempoFacil.setText(Long.toString(recordes.getTempo()/1000));
+        guardarRecordesDisco();
     }
 
     private void recordesMedioActualizado(TabelaRecordes recordes) {
         lblNomeMedio.setText(recordes.getNome());
         lblTempoMedio.setText(Long.toString(recordes.getTempo()/1000));
+        guardarRecordesDisco();
     }
 
     private void recordesDificilActualizado(TabelaRecordes recordes) {
         lblNomeDificil.setText(recordes.getNome());
         lblTempoDificil.setText(Long.toString(recordes.getTempo()/1000));
+        guardarRecordesDisco();
     }
 
     private void guardarRecordesDisco() {
