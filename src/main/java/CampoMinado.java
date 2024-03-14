@@ -80,7 +80,7 @@ public class CampoMinado {
         }
         else{
 
-            int vizinhas = contarMinasVizinhas(x,y) ;
+            int vizinhas = contarMinasVizinhas(x,y);
 
             if(vizinhas == 0){
                 revelarQuadriculasVizinhas(x, y);
@@ -99,19 +99,19 @@ public class CampoMinado {
         }
     }
 
-    private void marcarComoTendoMina(int x, int y){
+    public void marcarComoTendoMina(int x, int y){
         if(estado[x][y] == TAPADO || estado[x][y] == DUVIDA){
             estado[x][y] = MARCADO;
         }
     }
 
-    private void marcarComoSuspeita(int x, int y){
+    public void marcarComoSuspeita(int x, int y){
         if(estado[x][y] == TAPADO || estado[x][y] == MARCADO){
             estado[x][y] = DUVIDA;
         }
     }
 
-    private void desmarcarQuadricula(int x, int y){
+    public void desmarcarQuadricula(int x, int y){
         if(estado[x][y] == MARCADO || estado[x][y] == DUVIDA){
             estado[x][y] = TAPADO;
         }
@@ -151,12 +151,13 @@ public class CampoMinado {
         for (var i = Math.max(0, x - 1); i < Math.min(nrLinhas, x + 2); ++i) {
             for (var j = Math.max(0, y - 1); j < Math.min(nrColunas, y + 2); ++j)
             {
-                estado[x][y] = 0;
-                int numMinasVizinhas = contarMinasVizinhas(x,y);
+                int numMinasVizinhas = contarMinasVizinhas(i,j);
+                estado[x][y] = numMinasVizinhas;
 
                 if (numMinasVizinhas == 0) {
-                    revelarQuadriculasVizinhas(x,y);
+                    revelarQuadriculasVizinhas(i,j);
                 }
+
             }
         }
     }
