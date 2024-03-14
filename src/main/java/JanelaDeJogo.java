@@ -40,7 +40,20 @@ public class JanelaDeJogo extends JFrame{
         var x = botao.getLinha();
         var y = botao.getColuna();
         campoMinado.revelarQuadricula(x, y);
-        botoes[x][y].setEstado(campoMinado.getEstadoQuadricula(x, y));
+        actualizarEstadoBotoes();
+
+        if (campoMinado.isJogoTerminado()) {
+            if (campoMinado.isJogadorDerrotado()) {
+                JOptionPane.showMessageDialog(null, "Oh, rebentou uma mina", "Perdeu!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null,
+                        "Parabéns. Conseguiu descobrir todas as minas em "+ (campoMinado.getDuracaoJogo()/1000)+" segundos",
+                        "Vitória", JOptionPane.INFORMATION_MESSAGE);
+
+                setVisible(false);
+            }
+        }
     }
 
     private void actualizarEstadoBotoes() {

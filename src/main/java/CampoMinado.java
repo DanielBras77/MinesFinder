@@ -77,7 +77,6 @@ public class CampoMinado {
             jogadorDerrotado = true;
             jogoTerminado = true;
             duracaoJogo = System.currentTimeMillis() - instanteInicioJogo;
-            //Comunincar informação para o exterior da class
         }
         else{
 
@@ -182,4 +181,13 @@ public class CampoMinado {
         }
         return duracaoJogo;
     }
+
+    public boolean isJogoTerminado(){
+        return jogoTerminado;
+    }
+
+    public boolean isJogadorDerrotado(){
+        return jogadorDerrotado;
+    }
+
 }
