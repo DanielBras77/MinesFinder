@@ -65,7 +65,6 @@ public class JanelaDeJogo extends JFrame{
                 código estiver escrito da seguinte forma:
                 case KeyEvent.VK_UP -> botoes[--linha < 0 ? nrLinhas - 1 : linha][coluna].requestFocus();
                 Agora o código é mais intuitivo e menos propenso a erros.
-
                 */
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_UP -> botoes[--x < 0 ? nrLinhas - 1 :
